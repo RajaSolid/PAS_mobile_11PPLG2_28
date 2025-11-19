@@ -30,7 +30,6 @@ class RegisterPage extends StatelessWidget {
               label: "Username",
               controller: controller.usernameController,
             ),
-
             CustomTextField(
               label: "Password",
               controller: controller.passwordController,
@@ -41,11 +40,9 @@ class RegisterPage extends StatelessWidget {
               controller: controller.emailcontroller,
             ),
 
-
             const SizedBox(height: 24),
 
-            
-            // 🔹 Tombol Login API
+            // 🔹 Tombol Register API
             Obx(() {
               return controller.isApiLoading.value
                   ? const CircularProgressIndicator()
@@ -53,7 +50,7 @@ class RegisterPage extends StatelessWidget {
                       width: double.infinity,
                       height: 50,
                       child: CustomButton(
-                        myText: "Login dengan API",
+                        myText: "Register dengan API",
                         myTextColor: Colors.black,
                         onPressed: controller.register,
                       ),
@@ -75,19 +72,16 @@ class RegisterPage extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-              Obx(() {
-              return controller.isApiLoading.value
-                  ? const CircularProgressIndicator()
-                  : SizedBox(
-                      width: double.infinity,
-                      height: 50,
-                      child: CustomButton(
-                        myText: "Login dengan API",
-                        myTextColor: Colors.black,
-                        // onPressed: AppRoutes.login,
-                      ),
-                    );
-            }),
+            // 🔹 Tombol pindah ke halaman login
+            SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: CustomButton(
+                myText: "Sudah punya akun? Login",
+                myTextColor: Colors.black,
+                onPressed: () => Get.toNamed(AppRoutes.login),
+              ),
+            ),
           ],
         ),
       ),

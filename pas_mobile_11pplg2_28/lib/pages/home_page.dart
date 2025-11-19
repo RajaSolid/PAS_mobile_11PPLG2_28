@@ -11,10 +11,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-        appBar: AppBar(
-          title: const Text("Menu Utama"),
-          
-        ),
         body: bottomnavcontroller.pages[bottomnavcontroller.curindex.value],
         bottomNavigationBar: BottomNavigationBar(
           onTap: bottomnavcontroller.changepage,

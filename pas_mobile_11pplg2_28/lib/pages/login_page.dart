@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pas_mobile_11pplg2_28/components/custom_button.dart';
 import 'package:pas_mobile_11pplg2_28/components/custom_textfield.dart';
 import 'package:pas_mobile_11pplg2_28/controllers/login_controller.dart';
+import 'package:pas_mobile_11pplg2_28/routes/routes.dart'; // pastikan ini diimport
 
 class LoginPage extends StatelessWidget {
   final LoginAPIController controller = Get.find<LoginAPIController>();
@@ -25,7 +26,6 @@ class LoginPage extends StatelessWidget {
               label: "Username",
               controller: controller.usernameController,
             ),
-
             CustomTextField(
               label: "Password",
               controller: controller.passwordController,
@@ -34,6 +34,7 @@ class LoginPage extends StatelessWidget {
 
             const SizedBox(height: 24),
 
+            // 🔹 Tombol login
             Obx(() {
               return controller.isApiLoading.value
                   ? const CircularProgressIndicator()
@@ -47,6 +48,31 @@ class LoginPage extends StatelessWidget {
                       ),
                     );
             }),
+
+            const SizedBox(height: 20),
+
+            const Row(
+              children: [
+                Expanded(child: Divider(thickness: 1)),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Text("atau"),
+                ),
+                Expanded(child: Divider(thickness: 1)),
+              ],
+            ),
+
+            const SizedBox(height: 20),
+
+            SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: CustomButton(
+                myText: "Belum punya akun? Daftar",
+                myTextColor: Colors.black,
+                onPressed: () => Get.toNamed(AppRoutes.register),
+              ),
+            ),
           ],
         ),
       ),
