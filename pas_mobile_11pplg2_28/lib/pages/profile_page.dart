@@ -34,7 +34,7 @@ class _ProfilepageState extends State<Profilepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Profil")),
+      appBar: AppBar(title: const Text("Profil"), centerTitle: true),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -52,15 +52,14 @@ class _ProfilepageState extends State<Profilepage> {
                 Text(
                   username,
                   style: const TextStyle(
-                      fontSize: 22, fontWeight: FontWeight.bold),
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Text(email, style: TextStyle(color: Colors.grey[700])),
                 const SizedBox(height: 20),
 
-                const Text(
-                  "Hallo!",
-                  style: TextStyle(fontSize: 20),
-                ),
+                const Text("Hallo!", style: TextStyle(fontSize: 20)),
                 const SizedBox(height: 20),
 
                 const ListTile(
@@ -73,12 +72,11 @@ class _ProfilepageState extends State<Profilepage> {
                 ),
                 const SizedBox(height: 20),
 
-                      CustomButton(
-                        myText: 'Logout',
-                        myTextColor: Colors.red,
-                        onPressed: logoutController.logout,
-                      ),
-                    
+                CustomButton(
+                  myText: 'Logout',
+                  myTextColor: Colors.red,
+                  onPressed: logoutController.logout,
+                ),
               ],
             ),
           ),
